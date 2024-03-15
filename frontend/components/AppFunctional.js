@@ -41,6 +41,10 @@ export default function AppFunctional(props) {
 
   function reset() {
     // Tüm stateleri başlangıç ​​değerlerine sıfırlamak için bu helperı kullanın.
+    setEmail(initialEmail);
+    setIndex(initialIndex);
+    setMessage(initialMessage);
+    setSteps(initialSteps);
   }
 
   function sonrakiIndex(yon) {
@@ -116,11 +120,12 @@ export default function AppFunctional(props) {
         email: email,
       })
       .then(function (response) {
-        console.log(response);
+        //console.log(response);
         setMessage(response.data.message);
+        setEmail(initialEmail);
       })
       .catch(function (error) {
-        console.log(error);
+        //console.log(error);
         setMessage(error.response.data.message);
       });
   }
@@ -154,7 +159,7 @@ export default function AppFunctional(props) {
         <button onClick={ilerle} id="down">
           AŞAĞI
         </button>
-        <button onClick={ilerle} id="reset">
+        <button onClick={reset} id="reset">
           reset
         </button>
       </div>
